@@ -1,4 +1,4 @@
-import { Component, ComponentInterface, Host, h } from '@stencil/core';
+import { Component, ComponentInterface, Element, h } from '@stencil/core';
 
 @Component({
   tag: 'test-web-comp',
@@ -6,13 +6,16 @@ import { Component, ComponentInterface, Host, h } from '@stencil/core';
   shadow: true,
 })
 export class TestWebComp implements ComponentInterface {
+  @Element() private element: HTMLElement
 
   render() {
     return (
-      <Host>
-        <h1>Hey</h1>
-      </Host>
-    );
+      Array.from(this.element.children)
+        .map((childElement) => {
+          childElement.setAttribute('variant', 'grouped')
+          return <div innerHTML={childElement.outerHTML}></div>
+        })
+    )
   }
 
 }

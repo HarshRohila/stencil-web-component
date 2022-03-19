@@ -11,7 +11,17 @@
 </head>
 <body>
 
-  <test-web-comp></test-web-comp>
+  <test-web-comp>
+    <a-btn id="cBtn" onclick="btnClickHandler()"></a-btn>
+  </test-web-comp>
 
+  <script>
+    function btnClickHandler() {
+      console.log('Years')
+    }
+    // document.querySelector('#cBtn').addEventListener('click', () => {
+    //   console.log('Years')
+    // })
+  </script>
 </body>
 </html>
